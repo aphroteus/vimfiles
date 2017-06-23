@@ -80,7 +80,7 @@ elseif has("win32")
   source $VIMRUNTIME/delmenu.vim
   source $VIMRUNTIME/menu.vim
 
-  let $PATH .= ';C:\cygwin64\bin'
+  let $PATH .= ';C:\cygwin64\bin'. expand(';$HOME\bin')
 else
   echoerr "Unknown OS"
 endif
@@ -207,7 +207,7 @@ let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_max_files = 0
 let g:ctrlp_max_depth = 40
 let g:ctrlp_regexp = 1
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -c --exclude-standard | grep -v "Build\|BaseTools\|BuildTools\|EdkCompatibilityPkg"']
+let g:ctrlp_user_command ='rg -F --files %s'
 nnoremap <F5> :buffers<CR>:buffer<Space>
 " }}}
 

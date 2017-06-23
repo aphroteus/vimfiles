@@ -139,9 +139,6 @@ set nobackup
 " Show line number
 set number
 
-" Disable auto scroll
-set scrolloff=0
-
 " Always show status line
 set laststatus=2
 

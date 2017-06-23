@@ -6,22 +6,22 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-let win_shell = (has('win32') || has('win64')) && &shellcmdflag =~ '/'
-let vimDir = win_shell ? '$HOME/vimfiles' : '$HOME/.vim'
+let winshell = (has('win32') || has('win64')) && &shellcmdflag =~ '/'
+let vimdir = winshell ? '$HOME/vimfiles' : '$HOME/.vim'
 
-let vundle_readme=expand(vimDir . '/bundle/Vundle.vim/README.md')
-if !filereadable(vundle_readme)
-  silent execute "!mkdir " . expand(vimDir . '/bundle')
-  silent execute "!git clone https://github.com/VundleVim/Vundle.vim.git " . expand(vimDir . "/bundle/Vundle.vim")
+let vundlereadme=expand(vimdir . '/bundle/Vundle.vim/README.md')
+if !filereadable(vundlereadme)
+  silent execute "!mkdir " . expand(vimdir . '/bundle')
+  silent execute "!git clone https://github.com/VundleVim/Vundle.vim.git " . expand(vimdir . "/bundle/Vundle.vim")
 endif
 
 " set the runtime path to include Vundle and initialize
 "set rtp+=~/vimfiles/bundle/Vundle.vim
-let &runtimepath .= ',' . expand(vimDir . '/bundle/Vundle.vim')
+let &runtimepath .= ',' . expand(vimdir . '/bundle/Vundle.vim')
 "call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/vimfiles/bundle')
-call vundle#begin(expand(vimDir . '/bundle'))
+call vundle#begin(expand(vimdir . '/bundle'))
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'

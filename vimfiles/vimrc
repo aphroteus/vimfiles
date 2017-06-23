@@ -147,6 +147,7 @@ syntax on
 
 map zz :e $MYVIMRC<CR>
 
+" Movement {{{
 " Paring with * search feature
 map <kMinus> #
 
@@ -156,6 +157,7 @@ nnoremap bd :bp<CR>:bd #<CR>
 " Hotkey Go Next(gn) and Go Back(gb) for buffer
 nnoremap <expr> gn (&buftype is# "quickfix" ? "" : (&buftype is# "nofile" ? "" : ":bn<CR>"))
 nnoremap <expr> gb (&buftype is# "quickfix" ? "" : (&buftype is# "nofile" ? "" : ":bp<CR>"))
+" }}}
 
 " Exclude quickfix buffer from :bnext or :bprevious
 autocmd FileType qf set nobuflisted

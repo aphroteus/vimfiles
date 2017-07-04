@@ -149,14 +149,14 @@ map zz :e $MYVIMRC<CR>
 
 " Movement {{{
 " Paring with * search feature
-map <kMinus> #
+nmap <kMinus> #
 
 " Delete a buffer correctly
-nnoremap bd :bp<CR>:bd #<CR>
+nmap bd :bp<CR>:bd #<CR>
 
 " Hotkey Go Next(gn) and Go Back(gb) for buffer
-nnoremap <expr> gn (&buftype is# "quickfix" ? "" : (&buftype is# "nofile" ? "" : ":bn<CR>"))
-nnoremap <expr> gb (&buftype is# "quickfix" ? "" : (&buftype is# "nofile" ? "" : ":bp<CR>"))
+nmap <expr> gn (&buftype is# "quickfix" ? "" : (&buftype is# "nofile" ? "" : ":bn<CR>"))
+nmap <expr> gb (&buftype is# "quickfix" ? "" : (&buftype is# "nofile" ? "" : ":bp<CR>"))
 " }}}
 
 " Exclude quickfix buffer from :bnext or :bprevious
@@ -176,21 +176,24 @@ set wildignore+=.git/**,Build/**,BaseTools/**,BuildTools/**,EdkCompatibilityPkg/
 imap <Leader>[ // (PaulHuang-<C-R>=strftime('%Y%m%d')<C-M>-00) - start<ESC>
 imap <Leader>] // (PaulHuang-<C-R>=strftime('%Y%m%d')<C-M>-00) - end<ESC>
 
+nmap <S-n> :cnext<CR>
+nmap <S-p> :cprev<CR>
+
 
 " mksession {{{
 " Quick write session with F2
-map <Leader><F2> :mksession! ~/vim_session<CR>
+nmap <Leader><F2> :mksession! ~/vim_session<CR>
 " Load session with F3
-map <Leader><F3> :source ~/vim_session<CR>
+nmap <Leader><F3> :source ~/vim_session<CR>
 " }}}
 
 
 " Trinity {{{
 " Open and close all the three plugins on the same time
-nnoremap <F8> :TrinityToggleAll<CR>
+nmap <F8> :TrinityToggleAll<CR>
 
 " Open and close the NERD_tree.vim separately
-nnoremap <F9> :TrinityToggleNERDTree<CR>
+nmap <F9> :TrinityToggleNERDTree<CR>
 " }}}
 
 
@@ -207,7 +210,7 @@ let g:ctrlp_max_files = 0
 let g:ctrlp_max_depth = 40
 let g:ctrlp_regexp = 1
 let g:ctrlp_user_command ='rg -F --files %s'
-nnoremap <F5> :buffers<CR>:buffer<Space>
+nmap <F5> :buffers<CR>:buffer<Space>
 " }}}
 
 
@@ -238,7 +241,7 @@ autocmd BufEnter * call s:setcwd()
 
 
 " Binary {{{
-nnoremap <C-H> :Hexmode<CR>
+nmap <C-H> :Hexmode<CR>
 
 " ex command for toggling hex mode - define mapping if desired
 command -bar Hexmode call ToggleHex()

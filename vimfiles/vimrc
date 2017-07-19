@@ -180,8 +180,8 @@ set wildignore+=.git/**,Build/**,BaseTools/**,BuildTools/**,EdkCompatibilityPkg/
 imap <Leader>[ // (PaulHuang-<C-R>=strftime('%Y%m%d')<C-M>-00) - start<ESC>
 imap <Leader>] // (PaulHuang-<C-R>=strftime('%Y%m%d')<C-M>-00) - end<ESC>
 
-nmap <S-n> :cnext<CR>
-nmap <S-p> :cprev<CR>
+nmap <A-n> :cnext<CR>
+nmap <A-p> :cprev<CR>
 
 
 " mksession {{{

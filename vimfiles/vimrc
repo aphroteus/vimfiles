@@ -226,6 +226,7 @@ elseif executable('ag')
 endif
 let g:ackhighlight = 1
 map <F2> :Ack!<CR>
+nmap <F3> :Ack!<Space>
 " }}}
 
 

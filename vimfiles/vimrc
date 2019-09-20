@@ -27,18 +27,11 @@ call vundle#begin(expand(vimdir . '/bundle'))
 Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'vim-airline/vim-airline'
-Plugin 'wesleyche/SrcExpl'
-Plugin 'scrooloose/nerdtree'
-Plugin 'taglist.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'crusoexia/vim-monokai'
-Plugin 'aphroteus/Trinity'
 Plugin 'mileszs/ack.vim'
-Plugin 'easymotion/vim-easymotion'
 Plugin 'will133/vim-dirdiff'
-Plugin 'gregsexton/gitv'
-Plugin 'drmikehenry/vim-fontsize'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -182,23 +175,6 @@ imap <Leader>] // (PaulHuang-<C-R>=strftime('%Y%m%d')<C-M>-00) - end<ESC>
 
 nmap <A-n> :cnext<CR>
 nmap <A-p> :cprev<CR>
-
-
-" mksession {{{
-" Quick write session with F2
-nmap <Leader><F2> :mksession! ~/vim_session<CR>
-" Load session with F3
-nmap <Leader><F3> :source ~/vim_session<CR>
-" }}}
-
-
-" Trinity {{{
-" Open and close all the three plugins on the same time
-nmap <F8> :TrinityToggleAll<CR>
-
-" Open and close the NERD_tree.vim separately
-nmap <F9> :TrinityToggleNERDTree<CR>
-" }}}
 
 
 " vim-airline {{{

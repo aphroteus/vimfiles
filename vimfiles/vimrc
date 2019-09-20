@@ -145,9 +145,6 @@ syntax on
 map zz :e $MYVIMRC<CR>
 
 " Movement {{{
-" Paring with * search feature
-nmap <kMinus> #
-
 " Delete a buffer correctly
 nmap bd :bp<CR>:bd #<CR>
 
@@ -161,14 +158,6 @@ autocmd FileType qf set nobuflisted
 
 " Ignore search path
 set wildignore+=.git/**,Build/**,BaseTools/**,BuildTools/**,EdkCompatibilityPkg/**
-
-
-" Auto comment multi-line
-"autocmd FileType c,uni,vfr   let b:comment_leader = '// '
-"autocmd FileType uefi,inform let b:comment_leader = '# '
-"autocmd FileType vim         let b:comment_leader = '" '
-" noremap <silent> <Leader>cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
-" noremap <silent> <Leader>cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
 
 imap <Leader>[ // (PaulHuang-<C-R>=strftime('%Y%m%d')<C-M>-00) - start<ESC>
 imap <Leader>] // (PaulHuang-<C-R>=strftime('%Y%m%d')<C-M>-00) - end<ESC>

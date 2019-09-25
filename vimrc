@@ -254,7 +254,7 @@ if has("autocmd")
     au!
 
     " set binary option for all binary files before reading them
-    au BufReadPre *.rom,*.bin,*.hex setlocal binary
+    au BufReadPre *.fd,*.fv,*.rom,*.bin,*.hex setlocal binary
 
     " if on a fresh read the buffer variable is already set, it's wrong
     au BufReadPost *

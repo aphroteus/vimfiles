@@ -31,7 +31,6 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'crusoexia/vim-monokai'
 Plugin 'mileszs/ack.vim'
-Plugin 'will133/vim-dirdiff'
 Plugin 'aphroteus/vim-uefi'
 
 " All of your Plugins must be added before the following line

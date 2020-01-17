@@ -101,6 +101,8 @@ if has("gui_running")
     " Avoid unable to open swap file on Windows 7
     set directory=$TEMP
   endif
+else
+  set t_Co=256
 endif
 " }}}
 

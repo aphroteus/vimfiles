@@ -170,8 +170,13 @@ nmap <A-p> :cprev<CR>
 " }}}
 
 
+" Coding {{{
 imap <Leader>[ // (PaulHuang-<C-R>=strftime('%Y%m%d')<C-M>-00) - start<ESC>
 imap <Leader>] // (PaulHuang-<C-R>=strftime('%Y%m%d')<C-M>-00) - end<ESC>
+
+" Copy relative path of cwd to clipboard, working with setcwd
+nmap cs :let @*=expand("%")<CR>:echo @*<CR>
+" }}}
 
 
 " vim-airline {{{

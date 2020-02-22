@@ -39,6 +39,7 @@ filetype plugin indent on    " required
 
 " }}}
 
+
 " Platform dependency {{{
 if has("unix")
   " For Cygwin and Linux
@@ -79,6 +80,7 @@ else
 endif
 " }}}
 
+
 " Font and menu for GVim {{{
 if has("gui_running")
 
@@ -105,6 +107,7 @@ else
   set t_Co=256
 endif
 " }}}
+
 
 " Basic config {{{
 silent! colorscheme monokai
@@ -142,30 +145,33 @@ set number
 set laststatus=2
 
 syntax on
-" }}}
 
 map zz :e $MYVIMRC<CR>
+
+" Ignore search path
+set wildignore+=.git/**,Build/**,BaseTools/**,BuildTools/**,EdkCompatibilityPkg/**
+" }}}
+
 
 " Movement {{{
 " Delete a buffer correctly
 nmap bd :bp<CR>:bd #<CR>
 
-" Hotkey Go Next(gn) and Go Back(gb) for buffer
-nmap <expr> gn (&buftype is# "quickfix" ? "" : (&buftype is# "nofile" ? "" : ":bn<CR>"))
-nmap <expr> gb (&buftype is# "quickfix" ? "" : (&buftype is# "nofile" ? "" : ":bp<CR>"))
-" }}}
-
 " Exclude quickfix buffer from :bnext or :bprevious
 autocmd FileType qf set nobuflisted
 
-" Ignore search path
-set wildignore+=.git/**,Build/**,BaseTools/**,BuildTools/**,EdkCompatibilityPkg/**
+" Hotkey Go Next(gn) and Go Back(gb) for buffer
+nmap <expr> gn (&buftype is# "quickfix" ? "" : (&buftype is# "nofile" ? "" : ":bn<CR>"))
+nmap <expr> gb (&buftype is# "quickfix" ? "" : (&buftype is# "nofile" ? "" : ":bp<CR>"))
+
+" Hotkey Alt+n and Alt+p for navigating the results of quickfix
+nmap <A-n> :cnext<CR>
+nmap <A-p> :cprev<CR>
+" }}}
+
 
 imap <Leader>[ // (PaulHuang-<C-R>=strftime('%Y%m%d')<C-M>-00) - start<ESC>
 imap <Leader>] // (PaulHuang-<C-R>=strftime('%Y%m%d')<C-M>-00) - end<ESC>
-
-nmap <A-n> :cnext<CR>
-nmap <A-p> :cprev<CR>
 
 
 " vim-airline {{{

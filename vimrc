@@ -59,6 +59,8 @@ if has("unix")
     
   else
     " For Linux but not Cygwin
+    source $VIMRUNTIME/mswin.vim
+    behave mswin
   endif
 elseif has("win32")
   " For Windows-native Vim

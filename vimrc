@@ -61,6 +61,9 @@ if has("unix")
     " For Linux but not Cygwin
     source $VIMRUNTIME/mswin.vim
     behave mswin
+
+    " Remove swap files from working directory
+    set directory=/tmp
   endif
 elseif has("win32")
   " For Windows-native Vim
@@ -77,6 +80,9 @@ elseif has("win32")
   source $VIMRUNTIME/menu.vim
 
   let $PATH .= ';C:\cygwin64\bin'. expand(';$HOME\bin')
+
+  " Remove swap files from working directory
+  set directory=$TEMP
 else
   echoerr "Unknown OS"
 endif
@@ -102,8 +108,6 @@ if has("gui_running")
     " http://vim.wikia.com/wiki/Maximize_or_set_initial_window_size
     autocmd GUIEnter * simalt ~x
     set guifont=Inconsolata_for_Powerline:h14:cANSI
-    " Avoid unable to open swap file on Windows 7
-    set directory=$TEMP
   endif
 else
   set t_Co=256

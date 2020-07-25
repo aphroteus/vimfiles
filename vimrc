@@ -90,7 +90,7 @@ if has("gui_running")
   set guioptions -=r "remove right-hand scroll bar
   set guioptions -=L "remove left-hand scroll bar
 
-  if has("gui_gtk2")
+  if (has("gui_gtk2") || has("gui_gtk3"))
     set guifont=Inconsolata\ for\ Powerline\ Medium\ 17
   elseif has("x11")
     " Also for GTK 1

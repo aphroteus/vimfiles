@@ -1,25 +1,31 @@
 # vimfiles
-My vimrc
+My vimrc configuration
 
 ## Prerequisites
 
-Available in PATH environment variable:
+Available in `PATH` environment variable:
 
 *   [Git](https://git-scm.com/)
-*   [ripgrep](https://github.com/BurntSushi/ripgrep): put in `$HOME\bin\` or `%UserProfile%/bin/`
+*   [ripgrep](https://github.com/BurntSushi/ripgrep) (May put in `$HOME\bin\` or `%UserProfile%/bin/` if not availible
+    in `PATH`)
+
+Font:
+*   [Inconsolata for Powerline](https://github.com/powerline/fonts/tree/master/Inconsolata)
 
 ## Installing on Windows
 
     cd /d %UserProfile%
     git clone https://github.com/aphroteus/vimfiles.git
-Open vim or gVim and run `:PluginInstall`
+Open vim or gVim, and run `:PluginInstall`\
+After install procedure complete, restart vim to take effect
 
 ## Installing on Linux
 
     cd ~/
     git clone https://github.com/aphroteus/vimfiles.git
     mv ./vimfiles ./.vim
-Open vim and run `:PluginInstall`
+Open vim or gVim, and run `:PluginInstall`\
+After install procedure complete, restart vim to take effect
 
 ## Usage
 

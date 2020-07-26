@@ -99,12 +99,16 @@ if has("gui_running")
   set guioptions -=L "remove left-hand scroll bar
 
   if (has("gui_gtk2") || has("gui_gtk3"))
+    " Trying to maximize initial window size on Linux
+    " http://vim.wikia.com/wiki/Maximize_or_set_initial_window_size
+    set lines=50
+    set columns=170
     set guifont=Inconsolata\ for\ Powerline\ Medium\ 17
   elseif has("x11")
     " Also for GTK 1
     set guifont=*-lucidatypewriter-medium-r-normal-*-*-180-*-*-m-*-*
   elseif has("gui_win32")
-    " To maximize the initial Vim window under Windows
+    " To maximize initial window size on Windows
     " http://vim.wikia.com/wiki/Maximize_or_set_initial_window_size
     autocmd GUIEnter * simalt ~x
     set guifont=Inconsolata_for_Powerline:h14:cANSI

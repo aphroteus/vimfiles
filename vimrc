@@ -232,7 +232,7 @@ autocmd BufEnter * call s:setcwd()
 " }}}
 
 
-"" Binary {{{
+" Binary {{{
 " Refer :h hex-editing
 " vim -b : edit binary using xxd-format!
 augroup Binary

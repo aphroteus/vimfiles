@@ -221,7 +221,7 @@ nmap <F3> :Ack!<Space>
 function! s:setcwd()
   let cph = expand('%:p:h', 1)
   if cph =~ '^.\+://' | retu | en
-  for mkr in ['.git/', '.hg/', '.svn/', '.bzr/', '_darcs/', '.vimprojects']
+  for mkr in ['.git/', '.repo/', '.hg/', '.svn/', '.bzr/', '_darcs/', '.vimprojects']
     let wd = call('find'.(mkr =~ '/$' ? 'dir' : 'file'), [mkr, fnameescape(cph.';')])
     if wd != '' | let &acd = 0 | brea | en
   endfo

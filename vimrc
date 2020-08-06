@@ -185,7 +185,9 @@ imap <Leader>[ // (PaulHuang-<C-R>=strftime('%Y%m%d')<C-M>-00) - start<ESC>
 imap <Leader>] // (PaulHuang-<C-R>=strftime('%Y%m%d')<C-M>-00) - end<ESC>
 
 " Copy relative path of cwd to clipboard, working with setcwd
-nmap cs :let @*=expand("%")<CR>:echo @*<CR>
+if has("clipboard")
+  nmap cs :let @+=expand("%")<CR>:echo @+<CR>
+endif
 " }}}
 
 

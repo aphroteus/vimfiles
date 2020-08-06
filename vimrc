@@ -126,13 +126,14 @@ set encoding=utf-8
 " Rewrite to xterm
 behave xterm
 
-" Tab in my view will be stop by 2
-set tabstop=2
-
-" Only Space without Tab
-set softtabstop=2
-set expandtab
-set shiftwidth=2
+if 0
+  " Tab in my view will be stop by 2
+  set tabstop=2
+  " Only Space without Tab
+  set softtabstop=2
+  set shiftwidth=2
+  set expandtab
+endif
 
 set autoindent
 

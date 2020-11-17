@@ -160,7 +160,7 @@ syntax on
 map zz :e $MYVIMRC<CR>
 
 " Ignore search path
-set wildignore+=.git/**,Build/**,BaseTools/**,BuildTools/**,EdkCompatibilityPkg/**
+set wildignore+=.repo/**,.git/**,Build/**,BaseTools/**,BuildTools/**
 " }}}
 
 

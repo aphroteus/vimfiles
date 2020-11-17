@@ -164,6 +164,11 @@ set wildignore+=.repo/**,.git/**,Build/**,BaseTools/**,BuildTools/**
 " }}}
 
 
+augroup vimrc_autocmds
+  autocmd BufEnter * highlight OverLength ctermbg=darkgrey guibg=#592929
+  autocmd BufEnter * match OverLength /\%74v.*/
+augroup END
+
 " Movement {{{
 " Delete a buffer correctly
 nmap bd :bp<CR>:bd #<CR>

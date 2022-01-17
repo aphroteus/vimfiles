@@ -1,0 +1,18 @@
+[submodule "pack/syntax/start/vim-uefi"]
+	path = pack/syntax/start/vim-uefi
+	url = https://github.com/aphroteus/vim-uefi.git
+[submodule "pack/ui/start/vim-airline"]
+	path = pack/ui/start/vim-airline
+	url = https://github.com/vim-airline/vim-airline.git
+[submodule "pack/ui/start/vim-monokai"]
+	path = pack/ui/start/vim-monokai
+	url = https://github.com/crusoexia/vim-monokai.git
+[submodule "pack/util/start/ack.vim"]
+	path = pack/util/start/ack.vim
+	url = https://github.com/mileszs/ack.vim.git
+[submodule "pack/util/start/ctrlp.vim"]
+	path = pack/util/start/ctrlp.vim
+	url = https://github.com/ctrlpvim/ctrlp.vim.git
+[submodule "pack/util/start/vim-fugitive"]
+	path = pack/util/start/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive.git

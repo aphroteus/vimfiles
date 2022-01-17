@@ -6,7 +6,7 @@ My vimrc configuration
 Available in `PATH` environment variable:
 
 *   [Git](https://git-scm.com/)
-*   [ripgrep](https://github.com/BurntSushi/ripgrep) (May put in `$HOME\bin\` or `%UserProfile%/bin/` if not availible
+*   [ripgrep](https://github.com/BurntSushi/ripgrep) (May put in `$HOME/bin/` or `%UserProfile%\bin\` if not availible
     in `PATH`)
 
 Font:
@@ -14,18 +14,11 @@ Font:
 
 ## Installing on Windows
 
-    cd /d %UserProfile%
-    git clone https://github.com/aphroteus/vimfiles.git
-Open vim or gVim, and run `:PluginInstall`\
-After install procedure complete, restart vim to take effect
+    git clone --recursive https://github.com/aphroteus/vimfiles.git %UserProfile%\vimfiles
 
 ## Installing on Linux
 
-    cd ~/
-    git clone https://github.com/aphroteus/vimfiles.git
-    mv ./vimfiles ./.vim
-Open vim or gVim, and run `:PluginInstall`\
-After install procedure complete, restart vim to take effect
+    git clone --recursive https://github.com/aphroteus/vimfiles.git ~/.vim
 
 ## Usage
 

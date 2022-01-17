@@ -1,45 +1,6 @@
 " File: vimrc
 " Maintainer: Paul Huang <aphroteus at gmail dot com>
 
-" Vundle {{{
-
-set nocompatible              " be iMproved, required
-filetype off                  " required
-
-let winshell = (has('win32') || has('win64')) && &shellcmdflag =~ '/'
-let vimdir = winshell ? '$HOME/vimfiles' : '$HOME/.vim'
-
-let vundlereadme=expand(vimdir . '/bundle/Vundle.vim/README.md')
-if !filereadable(vundlereadme)
-  silent execute "!mkdir " . expand(vimdir . '/bundle')
-  silent execute "!git clone https://github.com/VundleVim/Vundle.vim.git " . expand(vimdir . "/bundle/Vundle.vim")
-endif
-
-" set the runtime path to include Vundle and initialize
-"set rtp+=~/vimfiles/bundle/Vundle.vim
-let &runtimepath .= ',' . expand(vimdir . '/bundle/Vundle.vim')
-"call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/vimfiles/bundle')
-call vundle#begin(expand(vimdir . '/bundle'))
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-
-Plugin 'vim-airline/vim-airline'
-Plugin 'tpope/vim-fugitive'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'crusoexia/vim-monokai'
-Plugin 'mileszs/ack.vim'
-Plugin 'aphroteus/vim-uefi'
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-
-" }}}
-
-
 " Platform dependency {{{
 if has("unix")
   " For Cygwin and Linux
@@ -161,6 +122,9 @@ map zz :e $MYVIMRC<CR>
 
 " Ignore search path
 set wildignore+=.repo/**,.git/**,Build/**,BaseTools/**,BuildTools/**
+
+set nocompatible
+filetype plugin indent on
 " }}}
 
 

@@ -3,20 +3,22 @@ My vimrc configuration
 
 ## Prerequisites
 
-Available in `PATH` environment variable:
+Utility available in `PATH` environment variable:
 
 *   [Git](https://git-scm.com/)
-*   [ripgrep](https://github.com/BurntSushi/ripgrep) (May put in `$HOME/bin/` or `%UserProfile%\bin\` if not availible
-    in `PATH`)
+*   [ripgrep](https://github.com/BurntSushi/ripgrep)
 
-Font:
+Font Installed:
 *   [Inconsolata for Powerline](https://github.com/powerline/fonts/tree/master/Inconsolata)
 
-## Installing on Windows
+## Installation Instructions
+### On Windows
 
+    winget install Git.Git
+    winget install BurntSushi.ripgrep.MSVC
     git clone --recursive https://github.com/aphroteus/vimfiles.git %UserProfile%\vimfiles
 
-## Installing on Linux
+### On Linux
 
     git clone --recursive https://github.com/aphroteus/vimfiles.git ~/.vim
 

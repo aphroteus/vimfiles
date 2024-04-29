@@ -22,3 +22,6 @@
 [submodule "pack/util/start/tagbar"]
 	path = pack/util/start/tagbar
 	url = https://github.com/preservim/tagbar.git
+[submodule "pack/tpope/start/vim-commentary"]
+	path = pack/tpope/start/vim-commentary
+	url = https://github.com/tpope/vim-commentary.git

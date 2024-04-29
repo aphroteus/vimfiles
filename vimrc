@@ -184,6 +184,12 @@ nmap <F3> :Ack!<Space>
 " }}}
 
 
+" vim-commentary {{{
+autocmd FileType uefidec,uefidsc,uefifdf,uefiinf,sdl setlocal commentstring=#\ %s
+autocmd FileType uefic,uefiuni,uefivfr,asl setlocal commentstring=//\ %s
+" }}}
+
+
 " rust.vim {{{
 let g:rustfmt_autosave = 1
 " }}}

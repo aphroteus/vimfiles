@@ -13,8 +13,8 @@
 [submodule "pack/util/start/ctrlp.vim"]
 	path = pack/util/start/ctrlp.vim
 	url = https://github.com/ctrlpvim/ctrlp.vim.git
-[submodule "pack/util/start/vim-fugitive"]
-	path = pack/util/start/vim-fugitive
+[submodule "pack/tpope/start/vim-fugitive"]
+	path = pack/tpope/start/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
 [submodule "pack/rust-lang/start/rust.vim"]
 	path = pack/rust-lang/start/rust.vim

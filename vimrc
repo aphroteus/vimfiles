@@ -195,11 +195,6 @@ let g:rustfmt_autosave = 1
 " }}}
 
 
-" tagbar {{{
-nmap <F8> :TagbarToggle<CR>
-" }}}
-
-
 " Set current working directory {{{
 function! s:setcwd()
   let cph = expand('%:p:h', 1)

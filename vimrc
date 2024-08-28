@@ -146,8 +146,46 @@ nmap <A-p> :cprev<CR>
 
 
 " Coding {{{
-imap <Leader>[ // (PaulHuang-<C-R>=strftime('%Y%m%d')<C-M>-00) - start<ESC>
-imap <Leader>] // (PaulHuang-<C-R>=strftime('%Y%m%d')<C-M>-00) - end<ESC>
+function! GetNumberTag(name_tag)
+  let output = system('git log --pretty=format:%s -n 1 --grep=' . a:name_tag)
+  if v:shell_error == 0 && output != ''
+    let parts = split(output, '_')
+    let parts = split(parts[0], '-')
+    let match = matchstr(parts[1], '[0-9]\+')
+    let number_tag = str2nr(match) + 1
+  else
+    let number_tag = 0
+  endif
+  let ret = printf('%04d', number_tag)
+  return ret
+endfunction
+
+function! GetTag()
+  let output = system('git rev-parse --show-toplevel')
+  if v:shell_error == 0 && output != ''
+    let git_top_level = fnamemodify(output, ':t')
+    let git_top_level = substitute(git_top_level, '\n$', '', '')
+    let git_top_level = git_top_level
+  else
+    let git_top_level = ''
+  endif
+  let output = system('echo %VIM_NAME_TAG%')
+  if v:shell_error == 0 && output != ''
+    let name =  substitute(output, '\n$', '', '')
+  else
+    let name = ''
+  endif
+
+  let name_tag = 'PEGA-' . name
+  let number = GetNumberTag(name_tag)
+  let name_tag = 'PEGA-' . name . number . '_' . git_top_level
+  return name_tag
+endfunction
+
+let name_tag = GetTag()
+
+imap <Leader>[ //<C-R>=GetTag()<C-M> >>><ESC>
+imap <Leader>] //<C-R>=GetTag()<C-M> <<<<ESC>
 
 " Copy relative path of cwd to clipboard, working with setcwd
 if has("clipboard")

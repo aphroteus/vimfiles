@@ -22,3 +22,6 @@
 [submodule "pack/tpope/start/vim-commentary"]
 	path = pack/tpope/start/vim-commentary
 	url = https://github.com/tpope/vim-commentary.git
+[submodule "pack/ycm-core/start/YouCompleteMe"]
+	path = pack/ycm-core/start/YouCompleteMe
+	url = https://github.com/ycm-core/YouCompleteMe.git

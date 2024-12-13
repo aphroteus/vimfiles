@@ -125,6 +125,8 @@ set wildignore+=.repo/**,.git/**,Build/**,BaseTools/**,BuildTools/**
 
 set nocompatible
 filetype plugin indent on
+
+autocmd FileType text,markdown setlocal spell spelllang=en_us
 " }}}
 
 

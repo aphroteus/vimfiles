@@ -197,6 +197,17 @@ let g:rustfmt_autosave = 1
 " }}}
 
 
+" python pfs black {{{
+if has('win32')
+  let g:black_virtualenv = expand('$HOME/vimfiles/black')
+endif
+augroup black_on_save
+  autocmd!
+  autocmd BufWritePre *.py Black
+augroup END
+" }}}
+
+
 " Set current working directory {{{
 function! s:setcwd()
   let cph = expand('%:p:h', 1)

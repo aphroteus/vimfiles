@@ -25,3 +25,6 @@
 [submodule "pack/python/start/black"]
 	path = pack/python/start/black
 	url = https://github.com/psf/black.git
+[submodule "pack/github/start/copilot.vim"]
+	path = pack/github/start/copilot.vim
+	url = https://github.com/github/copilot.vim.git

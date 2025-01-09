@@ -208,6 +208,11 @@ augroup END
 " }}}
 
 
+" Copilot {{{
+let g:copilot_enabled = 0
+" }}}
+
+
 " Set current working directory {{{
 function! s:setcwd()
   let cph = expand('%:p:h', 1)

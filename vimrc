@@ -166,7 +166,7 @@ let g:airline#extensions#tabline#enabled = 1
 
 
 " ctrlp {{{
-let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_working_path_mode = 'wa'
 let g:ctrlp_max_files = 0
 let g:ctrlp_max_depth = 40
 let g:ctrlp_regexp = 1

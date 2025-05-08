@@ -127,6 +127,8 @@ set nocompatible
 filetype plugin indent on
 
 autocmd FileType text,markdown setlocal spell spelllang=en_us
+
+set noerrorbells
 " }}}
 
 

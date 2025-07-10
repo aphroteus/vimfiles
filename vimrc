@@ -88,15 +88,20 @@ set encoding=utf-8
 behave xterm
 
 if 0
-  " Tab in my view will be stop by 2
-  set tabstop=2
-  " Only Space without Tab
-  set softtabstop=2
-  set shiftwidth=2
-  set expandtab
+" Tab and Indentation Settings {{{
+" Use spaces instead of tabs
+set expandtab
+" Number of spaces that a <Tab> in the file counts for
+set tabstop=4
+" Number of spaces to use for each step of (auto)indent
+set shiftwidth=4
+" When >0, <Tab> inserts <softtabstop> worth of spaces.
+" Makes tabbing behavior consistent with shiftwidth for inserting spaces.
+set softtabstop=4
+" }}}
 endif
 
-set autoindent
+set cindent
 
 set textwidth=120
 
@@ -191,7 +196,7 @@ nmap <F3> :Ack!<Space>
 
 " vim-commentary {{{
 autocmd FileType uefidec,uefidsc,uefifdf,uefiinf,sdl setlocal commentstring=#\ %s
-autocmd FileType uefic,uefiuni,uefivfr,asl setlocal commentstring=//\ %s
+autocmd FileType c,uefiuni,uefivfr,asl setlocal commentstring=//\ %s
 " }}}
 
 

@@ -182,18 +182,6 @@ let g:ctrlp_clear_cache_on_exit = 0
 " }}}
 
 
-" ack {{{
-if executable('rg')
-  let g:ackprg = 'rg --vimgrep --smart-case'
-elseif executable('ag')
-  let g:ackprg = 'ag --vimgrep --smart-case'
-endif
-let g:ackhighlight = 1
-map <F2> :Ack!<CR>
-nmap <F3> :Ack!<Space>
-" }}}
-
-
 " vim-commentary {{{
 autocmd FileType uefidec,uefidsc,uefifdf,uefiinf,sdl setlocal commentstring=#\ %s
 autocmd FileType c,uefiuni,uefivfr,asl setlocal commentstring=//\ %s

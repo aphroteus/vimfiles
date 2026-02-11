@@ -7,9 +7,6 @@
 [submodule "pack/ui/start/vim-monokai"]
 	path = pack/ui/start/vim-monokai
 	url = https://github.com/crusoexia/vim-monokai.git
-[submodule "pack/util/start/ack.vim"]
-	path = pack/util/start/ack.vim
-	url = https://github.com/mileszs/ack.vim.git
 [submodule "pack/util/start/ctrlp.vim"]
 	path = pack/util/start/ctrlp.vim
 	url = https://github.com/ctrlpvim/ctrlp.vim.git

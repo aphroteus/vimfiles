@@ -182,6 +182,22 @@ let g:ctrlp_clear_cache_on_exit = 0
 " }}}
 
 
+" vim-grepper {{{
+let g:grepper = {}
+let g:grepper.tools = ['rg', 'git', 'findstr', 'grep']
+let g:grepper.rg = { 'grepprg': 'rg -H --no-heading --vimgrep --smart-case' }
+let g:grepper.open = 0
+augroup GrepperCopen
+  autocmd!
+  autocmd User Grepper copen
+augroup END
+nmap gs <plug>(GrepperOperator)
+xmap gs <plug>(GrepperOperator)
+nnoremap <F2> :Grepper -cword -noprompt<CR>
+nnoremap <F3> :Grepper<CR>
+" }}}
+
+
 " vim-commentary {{{
 autocmd FileType uefidec,uefidsc,uefifdf,uefiinf,sdl setlocal commentstring=#\ %s
 autocmd FileType c,uefiuni,uefivfr,asl setlocal commentstring=//\ %s

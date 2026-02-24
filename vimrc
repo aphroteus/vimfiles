@@ -225,11 +225,6 @@ let g:copilot_enabled = 0
 " }}}
 
 
-" Codeium {{{
-let g:codeium_enabled = v:false
-" }}}
-
-
 " Set current working directory {{{
 function! s:setcwd()
   let cph = expand('%:p:h', 1)

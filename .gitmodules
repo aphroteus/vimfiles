@@ -25,9 +25,6 @@
 [submodule "pack/github/start/copilot.vim"]
 	path = pack/github/start/copilot.vim
 	url = https://github.com/github/copilot.vim.git
-[submodule "pack/Exafunction/start/windsurf.vim"]
-	path = pack/Exafunction/start/windsurf.vim
-	url = https://github.com/Exafunction/windsurf.vim.git
 [submodule "pack/util/start/vim-grepper"]
 	path = pack/util/start/vim-grepper
 	url = https://github.com/mhinz/vim-grepper.git

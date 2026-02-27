@@ -12,12 +12,12 @@ if has("unix")
     let &t_SI.="\e[5 q"
     let &t_EI.="\e[1 q"
     let &t_te.="\e[0 q"
-    
+
     let Tlist_Ctags_Cmd="/usr/bin/ctags"
     if has('mouse')
       set mouse=a
     endif
-    
+
   else
     " For Linux but not Cygwin
     source $VIMRUNTIME/mswin.vim

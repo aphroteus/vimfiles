@@ -198,6 +198,13 @@ nnoremap <F3> :Grepper<CR>
 " }}}
 
 
+" editorconfig {{{
+if has('patch-9.0.1799')
+  packadd! editorconfig
+endif
+" }}}
+
+
 " vim-commentary {{{
 autocmd FileType uefidec,uefidsc,uefifdf,uefiinf,sdl setlocal commentstring=#\ %s
 autocmd FileType c,uefiuni,uefivfr,asl setlocal commentstring=//\ %s

@@ -205,9 +205,12 @@ endif
 " }}}
 
 
-" vim-commentary {{{
-autocmd FileType uefidec,uefidsc,uefifdf,uefiinf,sdl setlocal commentstring=#\ %s
-autocmd FileType c,uefiuni,uefivfr,asl setlocal commentstring=//\ %s
+" comment {{{
+if has('patch-9.1.0375')
+  packadd! comment
+  autocmd FileType uefidec,uefidsc,uefifdf,uefiinf,sdl setlocal commentstring=#\ %s
+  autocmd FileType c,uefiuni,uefivfr,asl setlocal commentstring=//\ %s
+endif
 " }}}
 
 

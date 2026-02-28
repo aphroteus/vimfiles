@@ -16,9 +16,6 @@
 [submodule "pack/rust-lang/start/rust.vim"]
 	path = pack/rust-lang/start/rust.vim
 	url = https://github.com/rust-lang/rust.vim.git
-[submodule "pack/tpope/start/vim-commentary"]
-	path = pack/tpope/start/vim-commentary
-	url = https://github.com/tpope/vim-commentary.git
 [submodule "pack/python/start/black"]
 	path = pack/python/start/black
 	url = https://github.com/psf/black.git

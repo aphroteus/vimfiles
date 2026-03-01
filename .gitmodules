@@ -4,6 +4,9 @@
 [submodule "pack/ui/start/vim-airline"]
 	path = pack/ui/start/vim-airline
 	url = https://github.com/vim-airline/vim-airline.git
+[submodule "pack/ui/start/vim-airline-themes"]
+	path = pack/ui/start/vim-airline-themes
+	url = https://github.com/vim-airline/vim-airline-themes.git
 [submodule "pack/ui/start/vim-monokai"]
 	path = pack/ui/start/vim-monokai
 	url = https://github.com/crusoexia/vim-monokai.git

@@ -172,6 +172,11 @@ let g:airline#extensions#tabline#enabled = 1
 " }}}
 
 
+" vim-airline-themes {{{
+let g:airline_theme='molokai'
+" }}}
+
+
 " ctrlp {{{
 let g:ctrlp_working_path_mode = 'wa'
 let g:ctrlp_max_files = 0

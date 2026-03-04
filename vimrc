@@ -228,7 +228,7 @@ let g:rustfmt_autosave = 1
 if has('win32')
   let g:black_virtualenv = expand('$HOME/vimfiles/black')
 endif
-augroup black_on_save
+augroup BlackOnSave
   autocmd!
   autocmd BufWritePre *.py Black
 augroup END

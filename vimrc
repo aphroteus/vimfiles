@@ -81,12 +81,24 @@ endif
 
 
 " Basic config {{{
-silent! colorscheme monokai
-set encoding=utf-8
+set nocompatible        " Disable vi compatibility (must be first)
+set encoding=utf-8      " Set internal encoding to UTF-8
 
-" Rewrite to xterm
-behave xterm
+behave xterm            " Behave like xterm terminal
 
+set cindent             " Enable C-style auto-indentation
+set cursorline          " Highlight current line
+set hlsearch            " Highlight search matches
+set ignorecase          " Ignore case when searching
+set incsearch           " Search as characters are typed
+set laststatus=2        " Always show status line
+set nobackup            " Do not create backup files
+set noerrorbells        " Do not beep or flash on errors
+set noundofile          " Do not create undo files
+set number              " Show line number
+set smoothscroll        " Enable smooth scrolling
+set textwidth=120       " Set maximum line width
+set wildignore+=.repo/**,.git/**,Build/**,BaseTools/**,BuildTools/** " Ignore search path
 if 0
 " Tab and Indentation Settings {{{
 " Use spaces instead of tabs
@@ -101,39 +113,14 @@ set softtabstop=4
 " }}}
 endif
 
-set cindent
-
-set textwidth=120
-
-" Highlight and ignore case the Search
-set hlsearch incsearch
-set ignorecase
-
-" Highlight current line
-set cursorline
-
-set noundofile
-set nobackup
-
-" Show line number
-set number
-
-" Always show status line
-set laststatus=2
-
+filetype plugin indent on
 syntax on
 
-map zz :e $MYVIMRC<CR>
-
-" Ignore search path
-set wildignore+=.repo/**,.git/**,Build/**,BaseTools/**,BuildTools/**
-
-set nocompatible
-filetype plugin indent on
+silent! colorscheme monokai
 
 autocmd FileType text,markdown setlocal spell spelllang=en_us
 
-set noerrorbells
+map zz :e $MYVIMRC<CR>
 " }}}
 
 

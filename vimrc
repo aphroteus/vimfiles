@@ -219,6 +219,11 @@ endif
 " }}}
 
 
+" lsp {{{
+packadd! lsp
+" }}}
+
+
 " rust.vim {{{
 let g:rustfmt_autosave = 1
 " }}}

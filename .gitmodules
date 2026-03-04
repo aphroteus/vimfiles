@@ -28,3 +28,6 @@
 [submodule "pack/util/start/vim-grepper"]
 	path = pack/util/start/vim-grepper
 	url = https://github.com/mhinz/vim-grepper.git
+[submodule "pack/util/opt/lsp"]
+	path = pack/util/opt/lsp
+	url = https://github.com/yegappan/lsp.git

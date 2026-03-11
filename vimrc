@@ -178,6 +178,7 @@ let g:ctrlp_clear_cache_on_exit = 0
 let g:grepper = {}
 let g:grepper.tools = ['rg', 'git', 'findstr', 'grep']
 let g:grepper.rg = { 'grepprg': 'rg -H --no-heading --vimgrep --smart-case' }
+let g:grepper.highlight = 1
 let g:grepper.open = 0
 augroup GrepperCopen
   autocmd!

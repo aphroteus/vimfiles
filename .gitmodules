@@ -21,7 +21,8 @@
 	url = https://github.com/psf/black.git
 [submodule "pack/util/start/vim-grepper"]
 	path = pack/util/start/vim-grepper
-	url = https://github.com/mhinz/vim-grepper.git
+	url = https://github.com/aphroteus/vim-grepper.git
+	branch = dev
 [submodule "pack/util/opt/lsp"]
 	path = pack/util/opt/lsp
 	url = https://github.com/yegappan/lsp.git

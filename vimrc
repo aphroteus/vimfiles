@@ -232,11 +232,29 @@ augroup END
 function! s:setcwd()
   let cph = expand('%:p:h', 1)
   if cph =~ '^.\+://' | retu | en
-  for mkr in ['.git/', '.repo/', '.hg/', '.svn/', '.bzr/', '_darcs/', '.vimprojects']
-    let wd = call('find'.(mkr =~ '/$' ? 'dir' : 'file'), [mkr, fnameescape(cph.';')])
-    if wd != '' | let &acd = 0 | brea | en
-  endfo
-  exe 'lc!' fnameescape(wd == '' ? cph : substitute(wd, mkr.'$', '.', ''))
+
+  let wd = ''
+  let curr = cph
+
+  while curr != fnamemodify(curr, ':h')
+    if isdirectory(curr.'/.git') || filereadable(curr.'/.git')
+      let wd = curr
+    endif
+    let curr = fnamemodify(curr, ':h')
+  endwhile
+
+  if wd == ''
+    for mkr in ['.repo/', '.hg/', '.svn/', '.bzr/', '_darcs/', '.vimprojects']
+      let match = call('find'.(mkr =~ '/$' ? 'dir' : 'file'), [mkr, fnameescape(cph.';')])
+      if match != ''
+        let wd = substitute(match, mkr.'$', '.', '')
+        brea
+      en
+    endfo
+  endif
+
+  if wd != '' | let &acd = 0 | en
+  exe 'lc!' fnameescape(wd == '' ? cph : wd)
 endfunction
 
 autocmd BufEnter * call s:setcwd()

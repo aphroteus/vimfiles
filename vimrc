@@ -96,7 +96,9 @@ set nobackup            " Do not create backup files
 set noerrorbells        " Do not beep or flash on errors
 set noundofile          " Do not create undo files
 set number              " Show line number
-set smoothscroll        " Enable smooth scrolling
+if exists('+smoothscroll')
+  set smoothscroll        " Enable smooth scrolling
+endif
 set textwidth=120       " Set maximum line width
 set wildignore+=.repo/**,.git/**,Build/**,BaseTools/**,BuildTools/** " Ignore search path
 if 0

@@ -1,6 +1,7 @@
 [submodule "pack/syntax/start/vim-uefi"]
 	path = pack/syntax/start/vim-uefi
 	url = https://github.com/aphroteus/vim-uefi.git
+	branch = dev-vim9
 [submodule "pack/ui/start/vim-airline"]
 	path = pack/ui/start/vim-airline
 	url = https://github.com/vim-airline/vim-airline.git

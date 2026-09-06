@@ -13,37 +13,22 @@ if has("unix")
     let &t_EI.="\e[1 q"
     let &t_te.="\e[0 q"
 
-    let Tlist_Ctags_Cmd="/usr/bin/ctags"
     if has('mouse')
       set mouse=a
     endif
 
   else
     " For Linux but not Cygwin
-    source $VIMRUNTIME/mswin.vim
-    behave mswin
-
-    " Remove swap files from working directory
-    set directory=/tmp
+    " Remove swap files from working directory with unique path encoding
+    set directory=/tmp//
   endif
 elseif has("win32")
   " For Windows-native Vim
 
-  " Add Windows feature
-  source $VIMRUNTIME/vimrc_example.vim
-  source $VIMRUNTIME/mswin.vim
-  behave mswin
-
-  " Fix language issue on menu bar and toolbar
-  let $LANG="en_US.UTF-8"
-  set langmenu=en_US.UTF-8
-  source $VIMRUNTIME/delmenu.vim
-  source $VIMRUNTIME/menu.vim
-
   let $PATH .= ';C:\cygwin64\bin'. expand(';$HOME\bin')
 
-  " Remove swap files from working directory
-  set directory=$TEMP
+  " Remove swap files from working directory with unique path encoding
+  set directory=$TEMP//
 else
   echoerr "Unknown OS"
 endif
@@ -65,9 +50,6 @@ if has("gui_running")
     set lines=50
     set columns=170
     set guifont=Inconsolata\ for\ Powerline\ Medium\ 17
-  elseif has("x11")
-    " Also for GTK 1
-    set guifont=*-lucidatypewriter-medium-r-normal-*-*-180-*-*-m-*-*
   elseif has("gui_win32")
     " To maximize initial window size on Windows
     " http://vim.wikia.com/wiki/Maximize_or_set_initial_window_size
@@ -86,8 +68,6 @@ endif
 " Basic config {{{
 set nocompatible        " Disable vi compatibility (must be first)
 set encoding=utf-8      " Set internal encoding to UTF-8
-
-behave xterm            " Behave like xterm terminal
 
 set cindent             " Enable C-style auto-indentation
 set cursorline          " Highlight current line
@@ -133,6 +113,15 @@ nnoremap <silent> <Leader>sv <Cmd>source $MYVIMRC<CR><Cmd>echo "vimrc reloaded!"
 " }}}
 
 
+" Clipboard {{{
+if has("clipboard")
+  set clipboard=unnamed,unnamedplus
+  " Copy relative path of cwd to clipboard, working with plugin/cwd.vim
+  nnoremap <silent> cs <Cmd>let @+ = expand("%")<CR><Cmd>echo @+<CR>
+endif
+" }}}
+
+
 " Movement {{{
 " Delete a buffer correctly
 nnoremap <silent> <Leader>bd <Cmd>bprevious<CR><Cmd>bdelete #<CR>
@@ -156,11 +145,6 @@ nnoremap <A-p> <Cmd>cprev<CR>
 " Coding {{{
 inoremap <Leader>[ // (PaulHuang-<C-R>=strftime('%Y%m%d')<C-M>-00) - start<ESC>
 inoremap <Leader>] // (PaulHuang-<C-R>=strftime('%Y%m%d')<C-M>-00) - end<ESC>
-
-" Copy relative path of cwd to clipboard, working with setcwd
-if has("clipboard")
-  nnoremap <silent> cs <Cmd>let @+ = expand("%")<CR><Cmd>echo @+<CR>
-endif
 " }}}
 
 

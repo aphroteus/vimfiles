@@ -222,35 +222,6 @@ augroup END
 " }}}
 
 
-
-" Binary {{{
-" Refer :h hex-editing
-" vim -b : edit binary using xxd-format!
-augroup Binary
-  autocmd!
-  autocmd BufReadPre  *.fd,*.fv,*.rom,*.bin,*.efi,*.exe,*.hex set binary
-  autocmd BufReadPost *
-    \ if &binary
-    \ |   execute "silent %!xxd"
-    \ |   set filetype=xxd
-    \ |   redraw
-    \ | endif
-  autocmd BufWritePre *
-    \ if &binary
-    \ |   let s:view = winsaveview()
-    \ |   execute "silent %!xxd -r"
-    \ | endif
-  autocmd BufWritePost *
-    \ if &binary
-    \ |   execute "silent %!xxd"
-    \ |   set nomodified
-    \ |   call winrestview(s:view)
-    \ |   redraw
-    \ | endif
-augroup END
-" }}}
-
-
 "----------------------
 " vim:foldmethod=marker
 "----------------------

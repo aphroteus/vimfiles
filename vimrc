@@ -71,7 +71,10 @@ if has("gui_running")
   elseif has("gui_win32")
     " To maximize initial window size on Windows
     " http://vim.wikia.com/wiki/Maximize_or_set_initial_window_size
-    autocmd GUIEnter * simalt ~x
+    augroup GuiWin32Init
+      autocmd!
+      autocmd GUIEnter * simalt ~x
+    augroup END
     set guifont=Inconsolata_for_Powerline:h14:cANSI
   endif
 else
@@ -120,7 +123,10 @@ syntax on
 
 silent! colorscheme monokai
 
-autocmd FileType text,markdown setlocal spell spelllang=en_us
+augroup SpellSettings
+  autocmd!
+  autocmd FileType text,markdown setlocal spell spelllang=en_us
+augroup END
 
 map zz :e $MYVIMRC<CR>
 " }}}
@@ -131,7 +137,10 @@ map zz :e $MYVIMRC<CR>
 nmap bd :bp<CR>:bd #<CR>
 
 " Exclude quickfix buffer from :bnext or :bprevious
-autocmd FileType qf set nobuflisted
+augroup QuickfixSettings
+  autocmd!
+  autocmd FileType qf set nobuflisted
+augroup END
 
 " Hotkey Go Next(gn) and Go Back(gb) for buffer
 nmap <expr> gn (&buftype is# "quickfix" ? "" : (&buftype is# "nofile" ? "" : ":bn<CR>"))
@@ -203,8 +212,6 @@ endif
 " comment {{{
 if has('patch-9.1.0375')
   packadd! comment
-  autocmd FileType uefidec,uefidsc,uefifdf,uefiinf,sdl setlocal commentstring=#\ %s
-  autocmd FileType c,uefiuni,uefivfr,asl setlocal commentstring=//\ %s
 endif
 " }}}
 
@@ -229,38 +236,6 @@ augroup BlackOnSave
 augroup END
 " }}}
 
-
-" Set current working directory {{{
-function! s:setcwd()
-  let cph = expand('%:p:h', 1)
-  if cph =~ '^.\+://' | retu | en
-
-  let wd = ''
-  let curr = cph
-
-  while curr != fnamemodify(curr, ':h')
-    if isdirectory(curr.'/.git') || filereadable(curr.'/.git')
-      let wd = curr
-    endif
-    let curr = fnamemodify(curr, ':h')
-  endwhile
-
-  if wd == ''
-    for mkr in ['.repo/', '.hg/', '.svn/', '.bzr/', '_darcs/', '.vimprojects']
-      let match = call('find'.(mkr =~ '/$' ? 'dir' : 'file'), [mkr, fnameescape(cph.';')])
-      if match != ''
-        let wd = substitute(match, mkr.'$', '.', '')
-        brea
-      en
-    endfo
-  endif
-
-  if wd != '' | let &acd = 0 | en
-  exe 'lc!' fnameescape(wd == '' ? cph : wd)
-endfunction
-
-autocmd BufEnter * call s:setcwd()
-" }}}
 
 
 " Binary {{{

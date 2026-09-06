@@ -34,7 +34,11 @@ Hotkeys in normal mode:
     *   Press `<F3> + "the string" + <CR>`
 
 3. Switch between the buffers:
-    *   Press `gb` to previous buffer
-    *   Press `gn` to next buffer
-    *   Press `bd` to close current buffer
+    *   Press `[b` to previous buffer
+    *   Press `]b` to next buffer
+    *   Press `<Leader>bd` to close current buffer without closing split window
+
+4. Configuration file management:
+    *   Press `<Leader>ev` to edit vimrc
+    *   Press `<Leader>sv` to reload vimrc in place
 

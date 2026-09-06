@@ -128,13 +128,14 @@ augroup SpellSettings
   autocmd FileType text,markdown setlocal spell spelllang=en_us
 augroup END
 
-map zz :e $MYVIMRC<CR>
+nnoremap <silent> <Leader>ev <Cmd>edit $MYVIMRC<CR>
+nnoremap <silent> <Leader>sv <Cmd>source $MYVIMRC<CR><Cmd>echo "vimrc reloaded!"<CR>
 " }}}
 
 
 " Movement {{{
 " Delete a buffer correctly
-nmap bd :bp<CR>:bd #<CR>
+nnoremap <silent> <Leader>bd <Cmd>bprevious<CR><Cmd>bdelete #<CR>
 
 " Exclude quickfix buffer from :bnext or :bprevious
 augroup QuickfixSettings
@@ -142,23 +143,23 @@ augroup QuickfixSettings
   autocmd FileType qf set nobuflisted
 augroup END
 
-" Hotkey Go Next(gn) and Go Back(gb) for buffer
-nmap <expr> gn (&buftype is# "quickfix" ? "" : (&buftype is# "nofile" ? "" : ":bn<CR>"))
-nmap <expr> gb (&buftype is# "quickfix" ? "" : (&buftype is# "nofile" ? "" : ":bp<CR>"))
+" Hotkey Next(]b) and Back([b) for buffer
+nnoremap <expr> ]b (&buftype is# "quickfix" \|\| &buftype is# "nofile" ? "" : "<Cmd>bnext<CR>")
+nnoremap <expr> [b (&buftype is# "quickfix" \|\| &buftype is# "nofile" ? "" : "<Cmd>bprevious<CR>")
 
 " Hotkey Alt+n and Alt+p for navigating the results of quickfix
-nmap <A-n> :cnext<CR>
-nmap <A-p> :cprev<CR>
+nnoremap <A-n> <Cmd>cnext<CR>
+nnoremap <A-p> <Cmd>cprev<CR>
 " }}}
 
 
 " Coding {{{
-imap <Leader>[ // (PaulHuang-<C-R>=strftime('%Y%m%d')<C-M>-00) - start<ESC>
-imap <Leader>] // (PaulHuang-<C-R>=strftime('%Y%m%d')<C-M>-00) - end<ESC>
+inoremap <Leader>[ // (PaulHuang-<C-R>=strftime('%Y%m%d')<C-M>-00) - start<ESC>
+inoremap <Leader>] // (PaulHuang-<C-R>=strftime('%Y%m%d')<C-M>-00) - end<ESC>
 
 " Copy relative path of cwd to clipboard, working with setcwd
 if has("clipboard")
-  nmap cs :let @+=expand("%")<CR>:echo @+<CR>
+  nnoremap <silent> cs <Cmd>let @+ = expand("%")<CR><Cmd>echo @+<CR>
 endif
 " }}}
 

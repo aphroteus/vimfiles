@@ -118,6 +118,21 @@ if has("clipboard")
   set clipboard=unnamed,unnamedplus
   " Copy relative path of cwd to clipboard, working with plugin/cwd.vim
   nnoremap <silent> cs <Cmd>let @+ = expand("%")<CR><Cmd>echo @+<CR>
+
+  " Modern clipboard shortcut mappings (Windows CUA style without mswin toxicity)
+  " Normal mode: paste clipboard content and position cursor at the end
+  nnoremap <C-v> "+gP
+
+  " Visual mode: copy, cut, paste/replace selection with clipboard content
+  vnoremap <C-c> "+y
+  vnoremap <C-x> "+x
+  vnoremap <C-v> "+p
+
+  " Insert mode: paste clipboard with indentation preservation and undo boundary
+  inoremap <C-v> <C-g>u<C-r><C-p>+
+
+  " Command-line mode: paste clipboard text into command/search line
+  cnoremap <C-v> <C-r>+
 endif
 " }}}
 

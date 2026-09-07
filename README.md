@@ -42,3 +42,17 @@ Hotkeys in normal mode:
     *   Press `<Leader>ev` to edit vimrc
     *   Press `<Leader>sv` to reload vimrc in place
 
+5. Clipboard operations:
+
+| Mode | Shortcut | Action |
+| --- | --- | --- |
+| Normal | `<C-v>` | Paste from clipboard (cursor placed at end of paste) |
+| Normal | `<C-q>` | Enter Visual Block mode |
+| Normal | `cs` | Copy relative file path to clipboard |
+| Visual | `<C-c>` | Copy selection to clipboard |
+| Visual | `<C-x>` | Cut selection to clipboard |
+| Visual | `<C-v>` | Paste / replace selection with clipboard content |
+| Insert | `<C-v>` | Paste from clipboard (preserves indentation, creates undo boundary) |
+| Command-line | `<C-v>` | Paste from clipboard into command line |
+
+

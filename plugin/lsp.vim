@@ -1,31 +1,36 @@
 vim9script
 
-var lspOpts = {
-    autoHighlightDiags: true,
-    showSignature: true,
-    omniComplete: true,
+var lspOpts: dict<any> = {
+  autoHighlightDiags: true,
+  showSignature: true,
+  omniComplete: true,
 }
 
-var lspServers = [
-    {
-        name: 'clangd',
-        filetype: ['c'],
-        path: 'clangd',
-        args: [
-            '--background-index',
-            # '--clang-tidy',
-            '--header-insertion=never',
-            '--pch-storage=memory',
-        ]
-    }
-]
+var lspServers: list<dict<any>> = []
+if executable('clangd')
+  lspServers->add({
+    name: 'clangd',
+    filetype: ['c', 'cpp'],
+    path: 'clangd',
+    args: [
+      '--background-index',
+      # '--clang-tidy',
+      '--header-insertion=never',
+      '--pch-storage=memory',
+    ],
+  })
+endif
 
-autocmd User LspSetup {
-    call LspOptionsSet(lspOpts)
-    call LspAddServer(lspServers)
-}
+augroup LspConfig
+  autocmd!
+  autocmd User LspSetup {
+    g:LspOptionsSet(lspOpts)
+    if !empty(lspServers)
+      g:LspAddServer(lspServers)
+    endif
+  }
 
-autocmd User LspAttached {
+  autocmd User LspAttached {
     nnoremap <buffer> gd <Cmd>LspGotoDefinition<CR>
     nnoremap <buffer> gi <Cmd>LspGotoImpl<CR>
     nnoremap <buffer> K  <Cmd>LspHover<CR>
@@ -33,4 +38,5 @@ autocmd User LspAttached {
     nnoremap <buffer> <leader>f  <Cmd>LspFormat<CR>
     nnoremap <buffer> [d <Cmd>LspDiag prev<CR>
     nnoremap <buffer> ]d <Cmd>LspDiag next<CR>
-}
+  }
+augroup END

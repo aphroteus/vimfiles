@@ -1,7 +1,2 @@
-# Set the default behavior, in case people don't have core.autocrlf set.
-*     text=auto
-
-# Declare files that will always have LF line endings on checkout.
-vimrc text eol=lf
-*.vim text eol=lf
-*.doc text eol=lf
+# Enforce LF line endings for all text files across platforms.
+* text=auto eol=lf

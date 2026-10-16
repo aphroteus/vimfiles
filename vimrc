@@ -98,6 +98,22 @@ set softtabstop=4
 " }}}
 endif
 
+" editorconfig {{{
+if has('patch-9.0.1799')
+  packadd! editorconfig
+endif
+" }}}
+
+" comment {{{
+if has('patch-9.1.0375')
+  packadd! comment
+endif
+" }}}
+
+" lsp {{{
+packadd! lsp
+" }}}
+
 filetype plugin indent on
 syntax on
 
@@ -199,25 +215,6 @@ nmap gs <plug>(GrepperOperator)
 xmap gs <plug>(GrepperOperator)
 nnoremap <F2> :Grepper -cword -noprompt<CR>
 nnoremap <F3> :Grepper<CR>
-" }}}
-
-
-" editorconfig {{{
-if has('patch-9.0.1799')
-  packadd! editorconfig
-endif
-" }}}
-
-
-" comment {{{
-if has('patch-9.1.0375')
-  packadd! comment
-endif
-" }}}
-
-
-" lsp {{{
-packadd! lsp
 " }}}
 
 

@@ -193,10 +193,10 @@ let g:airline_theme='molokai'
 
 " ctrlp {{{
 let g:ctrlp_working_path_mode = 'wa'
-let g:ctrlp_max_files = 0
-let g:ctrlp_max_depth = 40
 let g:ctrlp_regexp = 1
-let g:ctrlp_user_command ='rg -F --files %s'
+if executable('rg')
+  let g:ctrlp_user_command = 'rg --files %s'
+endif
 let g:ctrlp_clear_cache_on_exit = 0
 " }}}
 

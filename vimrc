@@ -7,11 +7,21 @@ if has("unix")
   if has("win32unix")
     " For Cygwin but not Linux
 
-    " Make cursor dynamic change
-    let &t_ti.="\e[1 q"
-    let &t_SI.="\e[5 q"
-    let &t_EI.="\e[1 q"
-    let &t_te.="\e[0 q"
+    if !has('gui_running')
+      " Make cursor dynamic change (idempotent across vimrc reloads)
+      if stridx(&t_ti, "\e[1 q") < 0
+        let &t_ti .= "\e[1 q"
+      endif
+      if stridx(&t_SI, "\e[5 q") < 0
+        let &t_SI .= "\e[5 q"
+      endif
+      if stridx(&t_EI, "\e[1 q") < 0
+        let &t_EI .= "\e[1 q"
+      endif
+      if stridx(&t_te, "\e[0 q") < 0
+        let &t_te .= "\e[0 q"
+      endif
+    endif
 
     if has('mouse')
       set mouse=a
@@ -25,7 +35,49 @@ if has("unix")
 elseif has("win32")
   " For Windows-native Vim
 
-  let $PATH .= ';C:\cygwin64\bin'. expand(';$HOME\bin')
+  function! s:CleanWinPathEntry(entry) abort
+    let l:p = trim(substitute(trim(a:entry), '^"\(.*\)"$', '\1', ''))
+    let l:p = substitute(l:p, '/', '\\', 'g')
+    let l:prefix = l:p =~# '^\\\\' ? '\\' : ''
+    let l:rest = empty(l:prefix) ? l:p : substitute(l:p, '^\\\+', '', '')
+    let l:rest = substitute(l:rest, '\\\+', '\\', 'g')
+    let l:p = l:prefix .. l:rest
+    if l:p !~# '^[A-Za-z]:\\$'
+      let l:p = substitute(l:p, '\\\+$', '', '')
+    endif
+    return l:p
+  endfunction
+
+  function! s:AppendWinPath(dirs) abort
+    let l:existing = {}
+    for l:entry in split($PATH, ';')
+      let l:norm = tolower(s:CleanWinPathEntry(l:entry))
+      if !empty(l:norm)
+        let l:existing[l:norm] = 1
+      endif
+    endfor
+
+    for l:dir in a:dirs
+      if empty(l:dir) || !isdirectory(l:dir)
+        continue
+      endif
+      let l:clean = s:CleanWinPathEntry(l:dir)
+      let l:norm = tolower(l:clean)
+      if empty(l:norm) || has_key(l:existing, l:norm)
+        continue
+      endif
+      if empty($PATH)
+        let $PATH = l:clean
+      elseif $PATH =~# ';$'
+        let $PATH .= l:clean
+      else
+        let $PATH .= ';' .. l:clean
+      endif
+      let l:existing[l:norm] = 1
+    endfor
+  endfunction
+
+  call s:AppendWinPath(['C:\cygwin64\bin', !empty($HOME) ? expand('$HOME') .. '\bin' : ''])
 
   " Remove swap files from working directory with unique path encoding
   set directory=$TEMP//
@@ -69,7 +121,7 @@ endif
 set nocompatible        " Disable vi compatibility (must be first)
 set encoding=utf-8      " Set internal encoding to UTF-8
 
-set cindent             " Enable C-style auto-indentation
+set autoindent          " Preserve previous line indentation for all filetypes
 set cursorline          " Highlight current line
 set hlsearch            " Highlight search matches
 set ignorecase          " Ignore case when searching
@@ -155,12 +207,12 @@ endif
 
 " Movement {{{
 " Delete a buffer correctly
-nnoremap <silent> <Leader>bd <Cmd>bprevious<CR><Cmd>bdelete #<CR>
+nnoremap <silent> <Leader>bd <Cmd>Bdelete<CR>
 
 " Exclude quickfix buffer from :bnext or :bprevious
 augroup QuickfixSettings
   autocmd!
-  autocmd FileType qf set nobuflisted
+  autocmd FileType qf setlocal nobuflisted
 augroup END
 
 " Hotkey Next(]b) and Back([b) for buffer

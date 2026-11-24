@@ -162,10 +162,6 @@ if has('patch-9.1.0375')
 endif
 " }}}
 
-" lsp {{{
-packadd! lsp
-" }}}
-
 filetype plugin indent on
 syntax on
 
@@ -232,9 +228,9 @@ inoremap <Leader>] // (PaulHuang-<C-R>=strftime('%Y%m%d')<C-M>-00) - end<ESC>
 
 
 " vim-airline {{{
-let g:airline#extensions#branch#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
+let g:airline_extensions = ['quickfix', 'term', 'ctrlp', 'whitespace', 'tabline', 'grepper', 'searchcount']
 " }}}
 
 

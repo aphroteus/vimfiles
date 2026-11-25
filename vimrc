@@ -230,7 +230,7 @@ inoremap <Leader>] // (PaulHuang-<C-R>=strftime('%Y%m%d')<C-M>-00) - end<ESC>
 " vim-airline {{{
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_extensions = ['quickfix', 'term', 'ctrlp', 'whitespace', 'tabline', 'grepper', 'searchcount']
+let g:airline_extensions = ['quickfix', 'term', 'ctrlp', 'whitespace', 'tabline', 'searchcount']
 " }}}
 
 
@@ -246,23 +246,6 @@ if executable('rg')
   let g:ctrlp_user_command = 'rg --files %s'
 endif
 let g:ctrlp_clear_cache_on_exit = 0
-" }}}
-
-
-" vim-grepper {{{
-let g:grepper = {}
-let g:grepper.tools = ['rg', 'git', 'findstr', 'grep']
-let g:grepper.rg = { 'grepprg': 'rg -H --no-heading --vimgrep --smart-case' }
-let g:grepper.highlight = 1
-let g:grepper.open = 0
-augroup GrepperCopen
-  autocmd!
-  autocmd User Grepper copen
-augroup END
-nmap gs <plug>(GrepperOperator)
-xmap gs <plug>(GrepperOperator)
-nnoremap <F2> :Grepper -cword -noprompt<CR>
-nnoremap <F3> :Grepper<CR>
 " }}}
 
 
